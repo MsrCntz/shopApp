@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Dummy JSON nedir?",
+      "content": "Dummy JSON, test ve geliştirme için kullanılan örnek verilerdir."
+    },
+    {
+      "id": 2,
+      "title": "JSON'un Kullanım Alanları",
+      "content": "JSON, veri değişimi için yaygın olarak kullanılan bir formattır."
+    }
+  ]
+}

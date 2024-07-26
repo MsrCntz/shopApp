@@ -1,0 +1,227 @@
+h1 {
+  color: #050949;
+  font-size: 40px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: #414147 solid 2px;
+  box-shadow: #414147 3px 3px 3px 3px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+  border: none;
+  margin-right: auto;
+  margin-left: 25px;
+}
+
+.search {
+  flex: 1;
+  border: 5px solid rgb(2, 2, 56);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.button {
+  background-color: rgb(2, 2, 56);
+  color: rgb(243, 241, 241);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+}
+
+.Tab {
+  background-position: center;
+  background-color: rgb(3, 20, 77);
+  color: antiquewhite;
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 60px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 15px;
+  text-align: center;
+}
+
+.Tab a:hover {
+  color: gray;
+}
+
+.Tab a:selection {
+  color: rgba(255, 255, 255, 0.863);
+}
+
+.List {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h3 {
+  color: rgb(18, 2, 78);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p {
+  font-size: 15px;
+}
+
+.Item {
+  position: relative;
+  border: 3px solid #09526e;
+  border-radius: 5px;
+  box-shadow: rgb(12, 23, 32) 2px 2px 2px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  width: 250px;
+  margin: 15px;
+  padding: 15px;
+}
+
+.Price {
+  color: #05aa1b;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Item img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #c8d1d4;
+}
+
+.add-to-cart-icon {
+  font-size: 30px;
+  color: #050631;
+}
+
+.heart-icon {
+  font-size: 24px;
+  color: rgb(121, 5, 5);
+  vertical-align: middle;
+  margin-right: 60px;
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
+
+.CartSummary {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(3, 20, 77);
+  border: black 3px;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .Tab {
+    height: auto;
+    padding: 10px;
+  }
+
+  .Item {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .add-to-cart-icon {
+    margin-right: 25px;
+    margin-left: 20px;
+  }
+
+  .CartSummary {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  .button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .search {
+    padding: 3px;
+    border: 3px solid rgb(2, 2, 56);
+  }
+
+  .Item {
+    padding: 10px;
+  }
+
+  .Price {
+    font-size: 14px;
+  }
+}
+.alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #d5e9c9;
+  color: #3b8d0b;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid rgb(15, 8, 75) 2px;
+  padding: 4%;
+}
+
+.category-select {
+  background-color: rgb(179, 180, 182);
+  color: rgb(5, 25, 80);
+  font-size: xx-large;
+  border: solid rgb(5, 25, 80) 2px;
+  height: 45px;
+  width: 180px;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-left: 4px;
+}

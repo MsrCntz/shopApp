@@ -1,0 +1,96 @@
+.fav-container {
+  padding: 20px;
+}
+
+h3 {
+  color: #050949;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.empty-favorites {
+  text-align: center;
+  margin-top: 80px;
+  border: 2px solid gray;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  box-shadow: rgb(80, 79, 79) 3px 3px 3px 3px;
+}
+
+.empty-favorites p {
+  font-size: 20px;
+  color: #929090;
+}
+
+.home-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.home-button:hover {
+  background-color: #0056b3;
+}
+
+.empty-favorites button:hover {
+  background-color: rgb(188, 188, 201);
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: 200px;
+  text-align: center;
+}
+
+.product-name {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.product-price {
+  font-size: 14px;
+  color: gray;
+}
+
+.add-to-cart-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.add-to-cart-button:hover {
+  background-color: #a4aca6;
+}
+.alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #cff5c8;
+  color: #047204;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.fav-kaldır-button {
+  text-align: right;
+  color: #0056b3;
+}
