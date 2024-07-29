@@ -84,7 +84,7 @@ const Home = () => {
 
       {isLoading ? (
         <Loading />
-      ) : (
+      ) : data.length > 1 ? (
         <>
           <div>
             <select
@@ -106,21 +106,24 @@ const Home = () => {
                 <p>{product.description}</p>
                 <p className="Price">Price: ${product.price}</p>
                 <img src={product.thumbnail} alt={product.title} />
-
-                <div className="favorites">
-                  <button onClick={() => handleFavoriteClick(product.id)}>
-                    <FavoriteTwoToneIcon />
-                  </button>
-                </div>
-                <div className="cart">
-                  <button onClick={() => handleCartClick(product.id)}>
-                    <AddShoppingCartTwoToneIcon />
-                  </button>
+                <div className="ikons">
+                  <div className="favorites">
+                    <button onClick={() => handleFavoriteClick(product.id)}>
+                      <FavoriteTwoToneIcon />
+                    </button>
+                  </div>
+                  <div className="cart">
+                    <button onClick={() => handleCartClick(product.id)}>
+                      <AddShoppingCartTwoToneIcon />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </>
+      ) : (
+        <div> Yok </div>
       )}
     </div>
   );

@@ -6,6 +6,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Header from "../components/Header";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
+import Loading from "./Loading";
 
 const Alert = ({ message }) => <div className="alert">{message}</div>;
 
@@ -14,6 +15,7 @@ const Favorites = () => {
   const [products, setProducts] = useState([]);
   const [alertMessage, setAlertMessage] = useState("");
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -22,16 +24,19 @@ const Favorites = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setIsLoading(true);
       try {
         const requests = favData.map((id) =>
           axios.get(`https://dummyjson.com/products/${id}`)
         );
         const responses = await Promise.all(requests);
         const productsData = responses.map((response) => response.data);
+
         setProducts(productsData);
       } catch (error) {
         console.error(error);
       }
+      setIsLoading(false);
     };
     if (favData.length > 0) {
       fetchProducts();
@@ -62,8 +67,9 @@ const Favorites = () => {
       </h3>
 
       {alertMessage && <Alert message={alertMessage} />}
-
-      {products.length === 0 ? (
+      {isLoading ? (
+        <Loading />
+      ) : products.length === 0 ? (
         <div className="empty-favorites">
           <p>Your favorites list is empty!</p>
           <button onClick={handleRedirect} className="home-button">

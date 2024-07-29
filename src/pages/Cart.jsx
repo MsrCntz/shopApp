@@ -6,11 +6,13 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Header from "../components/Header";
 import CreditScoreTwoToneIcon from "@mui/icons-material/CreditScoreTwoTone";
+import Loading from "../pages/Loading";
 
 const Cart = () => {
   const [favData, setFavData] = useState([]);
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const getTotalPrice = () => {
@@ -35,6 +37,7 @@ const Cart = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setIsLoading(true);
       try {
         const requests = favData.map((id) =>
           axios.get(`https://dummyjson.com/products/${id}`)
@@ -45,12 +48,15 @@ const Cart = () => {
       } catch (error) {
         console.error(error);
       }
+      setIsLoading(false);
     };
 
     if (favData.length > 0) {
       fetchProducts();
     }
   }, [favData]);
+
+  console.log(isLoading);
 
   const handleHomeRedirect = () => {
     navigate("/");
@@ -77,7 +83,9 @@ const Cart = () => {
           <ChevronRightIcon /> My Cart
         </h3>
 
-        {products.length === 0 ? (
+        {isLoading ? (
+          <Loading />
+        ) : products.length === 0 ? (
           <div className="empty-cart">
             <p>Your cart is empty!</p>
             <button onClick={handleHomeRedirect}>Go to Homepage →</button>
