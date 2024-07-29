@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import Loading from "./Loading";
+import Tabs from "../components/Tabs";
 
 const Alert = ({ message }) => <div className="alert">{message}</div>;
 
@@ -16,6 +17,14 @@ const Favorites = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const handleRemoveFavorite = (productId) => {
+    const updatedFavData = favData.filter((id) => id !== productId);
+    setFavData(updatedFavData);
+
+    localStorage.setItem("favorites", JSON.stringify(updatedFavData));
+
+    setProducts(products.filter((product) => product.id !== productId));
+  };
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -62,6 +71,7 @@ const Favorites = () => {
   return (
     <div className="fav-container">
       <Header />
+      <Tabs />
       <h3>
         <ChevronRightIcon /> My Favorites
       </h3>
@@ -81,7 +91,7 @@ const Favorites = () => {
           {products.map((product) => (
             <div key={product.id} className="product-card">
               <div className="fav-kaldır">
-                <button>
+                <button onClick={() => handleRemoveFavorite(product.id)}>
                   <CloseTwoToneIcon />
                 </button>
               </div>

@@ -8,7 +8,7 @@ const NotFound = () => {
     <div className="not-found-container">
       <h1>404</h1>
       <h2>Page Not Found!</h2>
-      <h3>
+      <h3 className="notf">
         <WebAssetOffIcon style={{ fontSize: "larger" }} />
       </h3>
       <p>Sorry, the page you are looking for doesn't exist.</p>

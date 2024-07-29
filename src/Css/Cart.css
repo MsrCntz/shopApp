@@ -11,8 +11,8 @@
 
 .cart-title {
   text-align: center;
-  font-size: 30px;
-  margin-bottom: 20px;
+  font-size: 25px;
+  margin-bottom: 10px;
 }
 
 .product-list {
@@ -122,8 +122,8 @@
 }
 
 h4 {
-  color: rgb(1, 12, 41);
-  font-size: larger;
+  color: rgb(3, 22, 75);
+  font-size: 25px;
 }
 
 .empty-cart {
@@ -167,15 +167,25 @@ h4 {
 .remove-button {
   background-color: #120329;
   color: white;
-  margin-left: 150px;
-  size: 10px;
   border-color: rgb(245, 243, 242);
   border-radius: 5px;
-  font-size: 20px;
-  width: 25%;
+  font-size: 16px;
+  min-width: 120px;
+  max-width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  justify-items: center;
-  display: flex;
-  padding: 0.5%;
+  padding: 10px 20px;
+  margin-left: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid #f5f3f2;
+}
+
+@media (max-width: 600px) {
+  .remove-button {
+    font-size: 14px;
+    padding: 8px 16px;
+    min-width: 100px;
+  }
 }

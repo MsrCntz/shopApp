@@ -1,16 +1,28 @@
 .loading-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 50vh;
+  width: 100%;
+  text-align: center;
 }
 
 .loading-spinner {
-  width: "100%";
+  width: 50px;
   height: 50px;
   border: 5px solid #f3f3f3;
   border-top: 5px solid #022841;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin: 0 10px;
+  margin: 20px 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

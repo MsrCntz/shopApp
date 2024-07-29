@@ -9,7 +9,6 @@ const ContentWrapper = () => {
         height: "100vh",
       }}
     >
-      {/* <Header /> */}
       <div>
         <Outlet />
       </div>

@@ -7,6 +7,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Header from "../components/Header";
 import CreditScoreTwoToneIcon from "@mui/icons-material/CreditScoreTwoTone";
 import Loading from "../pages/Loading";
+import Tabs from "../components/Tabs";
 
 const Cart = () => {
   const [favData, setFavData] = useState([]);
@@ -78,10 +79,11 @@ const Cart = () => {
   return (
     <>
       <Header />
+      <Tabs />
       <div className="cart-container">
-        <h3>
+        <h4>
           <ChevronRightIcon /> My Cart
-        </h3>
+        </h4>
 
         {isLoading ? (
           <Loading />

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Tabs from "../components/Tabs";
 import Header from "../components/Header";
-import { CircularProgress } from "@mui/material";
 import Loading from "./Loading";
 import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
 import AddShoppingCartTwoToneIcon from "@mui/icons-material/AddShoppingCartTwoTone";
+import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 
 const Alert = ({ message }) => <div className="alert">{message}</div>;
 
@@ -86,18 +86,18 @@ const Home = () => {
         <Loading />
       ) : data.length > 1 ? (
         <>
-          <div>
-            <select
-              className="category-select"
-              value={selectedCategory}
-              onChange={(e) => handleCategoryChange(e.target.value)}
-            >
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
+          <div className="category-buttons-container">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`category-button ${
+                  selectedCategory === category ? "active" : ""
+                }`}
+                onClick={() => handleCategoryChange(category)}
+              >
+                {category}
+              </button>
+            ))}
           </div>
           <div className="List">
             {filteredData.map((product) => (
@@ -123,7 +123,25 @@ const Home = () => {
           </div>
         </>
       ) : (
-        <div> Yok </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            width: "100%",
+            textAlign: "center",
+          }}
+        >
+          <SentimentDissatisfiedIcon
+            sx={{
+              fontSize: "50px",
+              marginBottom: "10px",
+            }}
+          />
+          <h1>Sonuç Bulunamadı...</h1>
+        </div>
       )}
     </div>
   );

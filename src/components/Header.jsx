@@ -1,14 +1,12 @@
-import { BorderColor } from "@mui/icons-material";
-import { colors } from "@mui/material";
-import { blue } from "@mui/material/colors";
-import axios from "axios";
 import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Header = ({ setData, setIsLoading }) => {
   const navigate = useNavigate();
   const searchPar = useRef();
-  const [cartCount, setCartCount] = useState();
+  const [cartCount, setCartCount] = useState([]);
 
   useEffect(() => {
     const cartData = localStorage.getItem("cart");
@@ -16,8 +14,6 @@ const Header = ({ setData, setIsLoading }) => {
       setCartCount(JSON.parse(cartData));
     }
   }, [localStorage.getItem("cart")]);
-
-  // console.log(cartCount);
 
   const handleSearch = () => {
     const searchValue = searchPar.current.value;
@@ -34,58 +30,107 @@ const Header = ({ setData, setIsLoading }) => {
 
   return (
     <>
-      <header className="header">
-        <h1
+      <header
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          padding: "10px",
+        }}
+      >
+        <div
           style={{
-            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+            maxWidth: "1200px",
           }}
-          onClick={() => navigate("/")}
         >
-          MsrShop
-        </h1>
-        <div className="search-container">
+          <h1
+            style={{
+              cursor: "pointer",
+              margin: "0",
+              flex: "1",
+              fontSize: "50px",
+            }}
+            onClick={() => navigate("/")}
+          >
+            MsrShop
+          </h1>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <i
+              onClick={() => navigate("/Cart")}
+              style={{
+                cursor: "pointer",
+                fontSize: "30px",
+                marginRight: "10px",
+              }}
+              className="fas fa-shopping-cart add-to-cart-icon"
+            ></i>
+            {cartCount?.length > 0 && (
+              <div className="cartNo">{cartCount.length}</div>
+            )}
+            <i
+              onClick={() => navigate("/Favorite")}
+              style={{
+                cursor: "pointer",
+                fontSize: "30px",
+                marginLeft: "10px",
+              }}
+              className="fas fa-heart heart-icon"
+            ></i>
+          </div>
+        </div>
+        <div
+          style={{
+            marginTop: "10px",
+            width: "100%",
+            maxWidth: "600px",
+            display: "flex",
+          }}
+        >
           <input
             type="text"
             className="search"
             placeholder="Search products..."
             ref={searchPar}
-          />
-          <button onClick={handleSearch} className="button">
-            Search
-          </button>
-        </div>
-
-        <i
-          onClick={() => navigate("/Cart")}
-          style={{
-            cursor: "pointer",
-          }}
-          className="fas fa-shopping-cart add-to-cart-icon"
-        ></i>
-        {cartCount?.length > 0 && (
-          <div
             style={{
-              marginLeft: "4px",
-              marginBottom: "25px",
-              border: "solid, 1px, gray",
-              borderRadius: "50px",
-              fontSize: "12px",
-              backgroundColor: "red",
+              width: "70%",
+              padding: "10px",
+              borderRadius: "4px",
+              border: "3px solid #ddd",
+              marginRight: "10px",
+            }}
+          />
+          <button
+            onClick={handleSearch}
+            className="button"
+            style={{
+              width: "30%",
+              padding: "10px",
+              border: "none",
+              borderRadius: "4px",
               color: "white",
-              padding: "4px",
+              cursor: "pointer",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            {cartCount?.length}
-          </div>
-        )}
-
-        <i
-          onClick={() => navigate("/Favorite")}
-          style={{
-            cursor: "pointer",
-          }}
-          className="fas fa-heart heart-icon"
-        ></i>
+            Search{" "}
+            <SearchIcon
+              sx={{
+                ml: "5px",
+              }}
+            />
+          </button>
+        </div>
       </header>
     </>
   );
